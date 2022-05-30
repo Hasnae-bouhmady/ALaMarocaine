@@ -1,36 +1,56 @@
-import { WishComponent } from './Component/wish/wish.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ToolbarComponent } from './Component/toolbar/toolbar.component';
+
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+
+import { NgModule } from '@angular/core';
+
+
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component'; 
+import { PlatsearchpipePipe } from './Pipe/platsearchpipe.pipe';
+
+
+/**     @angular/material          */
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule} from '@angular/material/paginator';
-import { HttpClient } from '@angular/common/http';
-import { HttpClientModule } from '@angular/common/http';
-import { DisplaybookComponent } from './Component/displaybook/displaybook.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSnackBarModule } from '@angular/material/snack-bar';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatSelectModule} from '@angular/material/select';
-import { BooksearchpipePipe } from './Pipe/booksearchpipe.pipe';
-import { CartComponent } from './Component/cart/cart.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
-import { OrdergreetingComponent } from './Component/ordergreeting/ordergreeting.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatIconModule} from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { PagenotfoundComponent } from './component/pagenotfound/pagenotfound.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
+
+
+
+
+
+
+
+/**                   Components            */
+
+import { ToolbarComponent } from './Component/toolbar/toolbar.component';
+import { WishComponent } from './Component/wish/wish.component';
+import { CartComponent } from './Component/cart/cart.component';
+import { OrdergreetingComponent } from './Component/ordergreeting/ordergreeting.component';
+import { PagenotfoundComponent } from './Component/pagenotfound/pagenotfound.component';
 import { ForgetPasswordComponent } from './Component/auth/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './Component/auth/reset-password/reset-password.component';
-import { AdminComponent } from './Component/admin/admin/admin.component';
+
 import { SpineerComponent } from './Component/spineer/spineer.component';
 import { LoginComponentComponent } from './Component/auth/login-component/login-component.component';
 import { RegistrationComponent } from './Component/auth/registration/registration.component';
@@ -38,17 +58,9 @@ import { SellerComponent } from './Component/seller/seller/seller.component';
 import { FooterComponent } from './Component/footer/footer.component';
 import { DashboardComponent } from './Component/dashboard/dashboard.component';
 import { SidenavbarComponent } from './Component/sidenavbar/sidenavbar.component';
-import { AddbookComponent } from './Component/addbook/addbook.component';
-import { MatDialogModule } from '@angular/material/dialog';
-import { UpdateBookComponent } from './Component/update-book/update-book.component';
 import { GiverateComponent } from './Component/giverate/giverate.component';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import { AdminunverifiedbooksComponent } from './Component/adminunverifiedbooks/adminunverifiedbooks.component';
 import { RatereviewComponent } from './Component/ratereview/ratereview.component';
-import { RatedbooksComponent } from './Component/ratedbooks/ratedbooks.component';
-import { BookreviewsComponent } from './Component/bookreviews/bookreviews.component';
 import { OrderstatusComponent } from './Component/orderstatus/orderstatus.component';
-import { UploadBookImageComponent } from './Component/addbook/upload-book-image/upload-book-image.component';
 import { HomeComponent } from './Component/home/home.component';
 import { CandidatureComponent } from './Component/home/candidature/candidature.component';
 import { ConnectionComponent } from './Component/home/connection/connection.component';
@@ -56,21 +68,48 @@ import { PlatsComponent } from './Component/home/plats/plats.component';
 import { HomeClientComponent } from './Component/home-client/home-client.component';
 import { AccueilClientComponent } from './Component/home-client/accueil-client/accueil-client.component';
 import { ChefsVisiteurComponent } from './Component/home/chefs-visiteur/chefs-visiteur.component';
-import { ChefDeLaSemaineComponent } from './Component/home/chef-de-semaine/chef-de-semaine.component';
+import { ChefDeSemaineComponent } from './Component/home/chef-de-semaine/chef-de-semaine.component';
+
+
+import { AddplatComponent } from './Component/addplat/addplat.component';
+import { UploadPlatImageComponent } from './Component/addplat/upload-plat-image/upload-plat-image/upload-plat-image.component';
+
+
+import { PlatreviewsComponent } from './Component/platreviews/platreviews/platreviews.component';
+import { DisplayplatComponent } from './Component/displayplat/displayplat/displayplat.component';
+import { RatedplatsComponent } from './Component/ratedplats/ratedplats.component';
+import { UpdatePlatComponent } from './Component/update-plat/update-plat/update-plat.component';
+
+import { AddchefComponent } from './Component/addchef/addchef.component';
+
+import { UploadChefImageComponent } from './Component/addchef/upload-chef-image/upload-chef-image.component';
+import { UpdateChefComponent } from './Component/update-chef/update-chef.component';
+import { DisplaychefComponent } from './Component/displaychef/displaychef.component';
+import { HomeSellerComponent } from './Component/home-seller/home-seller.component';
+import { CandidaturesSellerComponent } from './Component/home-seller/candidatures-seller/candidatures-seller.component';
+import { AccueilSellerComponent } from './Component/home-seller/accueil-seller/accueil-seller.component';
+
+
+
+
+
+
+
+
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    DisplaybookComponent,
-    BooksearchpipePipe,
+    PlatsearchpipePipe,
     CartComponent,
     OrdergreetingComponent,
     PagenotfoundComponent,
     ForgetPasswordComponent,
     ResetPasswordComponent,
-    AdminComponent,
     SpineerComponent,
     LoginComponentComponent,
     RegistrationComponent,
@@ -79,14 +118,10 @@ import { ChefDeLaSemaineComponent } from './Component/home/chef-de-semaine/chef-
     DashboardComponent,
     SidenavbarComponent,
     GiverateComponent,
-    AdminunverifiedbooksComponent,
+  
     RatereviewComponent,
-    AddbookComponent,
-    UpdateBookComponent,
-    UploadBookImageComponent,
-    BookreviewsComponent,
+    AddplatComponent,
     OrderstatusComponent,
-    RatedbooksComponent,
     WishComponent,
     HomeComponent,
     CandidatureComponent,
@@ -95,7 +130,25 @@ import { ChefDeLaSemaineComponent } from './Component/home/chef-de-semaine/chef-
     HomeClientComponent,
     AccueilClientComponent,
     ChefsVisiteurComponent,
-    ChefDeLaSemaineComponent
+    ChefDeSemaineComponent,
+    UploadPlatImageComponent ,
+    PlatreviewsComponent,
+    DisplayplatComponent,
+    RatedplatsComponent,
+    UpdatePlatComponent,
+
+    AddchefComponent,
+    UploadChefImageComponent,
+    UpdateChefComponent,
+    DisplaychefComponent,
+    HomeSellerComponent,
+    CandidaturesSellerComponent,
+    AccueilSellerComponent,
+
+
+  
+  
+    
 
   ],
   imports: [
@@ -108,7 +161,7 @@ import { ChefDeLaSemaineComponent } from './Component/home/chef-de-semaine/chef-
     MatPaginatorModule,
     FormsModule,
     MatCardModule,
-    ReactiveFormsModule,
+
     HttpClientModule,
     MatSnackBarModule,
     MatStepperModule,
@@ -122,6 +175,9 @@ import { ChefDeLaSemaineComponent } from './Component/home/chef-de-semaine/chef-
     MatSelectModule,
     MatTooltipModule,
     MatDialogModule,
+    ReactiveFormsModule 
+   
+
     
  ],
   providers: [HttpClient],
