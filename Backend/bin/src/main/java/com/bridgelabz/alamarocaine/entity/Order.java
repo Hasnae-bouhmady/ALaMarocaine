@@ -1,0 +1,115 @@
+
+package com.bridgelabz.alamarocaine.entity;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import lombok.Data;
+
+@Entity
+@Data
+@Table(name = "order_details")
+public class Order implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	private Long orderId;
+	@Column(name = "order_placed_time")
+	private LocalDateTime orderPlacedTime;
+
+	private String orderStatus;
+
+	private Double totalPrice;
+
+	private Long addressId;
+
+	@OneToMany(cascade = CascadeType.ALL, targetEntity = Quantity.class)
+	@JoinColumn(name = "orderId")
+	private List<Quantity> QuantityOfPlats;
+
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Plat> PlatsList;
+
+	public Order() {
+
+	}
+
+	public Order(Long orderId, LocalDateTime orderPlacedTime, List<Quantity> quantityOfPlats, List<Plat> platsList) {
+		super();
+		this.orderId = orderId;
+		this.orderPlacedTime = orderPlacedTime;
+		QuantityOfPlats = quantityOfPlats;
+		PlatsList = platsList;
+	}
+
+	public Long getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Long orderId) {
+		this.orderId = orderId;
+	}
+
+	public LocalDateTime getOrderPlacedTime() {
+		return orderPlacedTime;
+	}
+
+	public void setOrderPlacedTime(LocalDateTime orderPlacedTime) {
+		this.orderPlacedTime = orderPlacedTime;
+	}
+
+	public String getOrderStatus() {
+		return orderStatus;
+	}
+
+	public void setOrderStatus(String orderStatus) {
+		this.orderStatus = orderStatus;
+	}
+
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public Long getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(Long addressId) {
+		this.addressId = addressId;
+	}
+
+	public List<Quantity> getQuantityOfPlats() {
+		return QuantityOfPlats;
+	}
+
+	public void setQuantityOfPlats(List<Quantity> quantityOfPlats) {
+		QuantityOfPlats = quantityOfPlats;
+	}
+
+	public List<Plat> getPlatsList() {
+		return PlatsList;
+	}
+
+	public void setPlatsList(List<Plat> platsList) {
+		PlatsList = platsList;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+}
