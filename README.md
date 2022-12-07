@@ -1,4 +1,4 @@
- # À La Marocaine (En cours)
+ # À La Marocaine
 
 <div> <strong>À La Marocaine </strong> est un site de vente de plats marocains. Il propose une
 variété de mets traditionnels préparés par des chefs expérimentés à des clients
