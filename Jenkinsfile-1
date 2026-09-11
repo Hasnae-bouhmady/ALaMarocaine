@@ -8,6 +8,7 @@ pipeline {
       steps {
         dir('Backend/bin') {
           withSonarQubeEnv('sq1') {
+            sh 'chmod +x mvnw'
             sh './mvnw clean verify sonar:sonar'
           }
         }
