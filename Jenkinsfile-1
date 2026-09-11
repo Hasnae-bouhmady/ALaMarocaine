@@ -3,13 +3,13 @@ pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
+tools { maven 'maven-alamarocaine' }
   stages {
     stage('Scan') {
       steps {
         dir('Backend/bin') {
           withSonarQubeEnv('sq1') {
-            sh 'chmod +x mvnw'
-            sh './mvnw clean verify sonar:sonar'
+            sh 'mvnw clean verify sonar:sonar'
           }
         }
       }
