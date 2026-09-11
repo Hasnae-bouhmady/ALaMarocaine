@@ -1,0 +1,17 @@
+pipeline {
+  agent any
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+  }
+  stages {
+    stage('Scan') {
+      steps {
+        dir('Backend/bin') {
+          withSonarQubeEnv('sq1') {
+            sh './mvnw clean verify sonar:sonar'
+          }
+        }
+      }
+    }
+  }
+}
